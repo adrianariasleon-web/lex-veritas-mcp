@@ -63,4 +63,11 @@ def estado_lex_veritas() -> dict:
 
 
 if __name__ == "__main__":
-    mcp.run()
+    import os
+    port = int(os.environ.get("PORT", 10000))
+    mcp.run(
+        transport="streamable-http",
+        host="0.0.0.0",
+        port=port
+    )
+    
