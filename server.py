@@ -13,10 +13,11 @@ DOMINIOS_OFICIALES = {
 
 @mcp.tool
 def verificar_fuente_oficial(url: str) -> dict:
-    """
+   """
     Verifica preliminarmente si una URL pertenece a un dominio jurídico
     oficial autorizado por LEX-VERITAS.
     """
+    print("TOOL_CALL verificar_fuente_oficial", flush=True)
     try:
         parsed = urlparse(url)
         dominio = (parsed.hostname or "").lower()
@@ -53,6 +54,7 @@ def verificar_fuente_oficial(url: str) -> dict:
 
 @mcp.tool
 def estado_lex_veritas() -> dict:
+    print("TOOL_CALL estado_lex_veritas", flush=True)
     """Comprueba que el servidor MCP LEX-VERITAS está funcionando."""
     return {
         "sistema": "LEX-VERITAS",
